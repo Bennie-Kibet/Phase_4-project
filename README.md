@@ -291,7 +291,7 @@ Class 0 performs poorly here, with only 16 of 142 samples correctly classified, 
 
 ![alt text](Images/cm_nn.png)
 
-The model has an accuracy of 64% (0.6353615520282186). Showing it can predict correctly 64% of the time on unseen data.
+The model has an accuracy of 64% (0.6362433862433863). Showing it can predict correctly 64% of the time on unseen data.
 
 The values are:
 * True 0: 12 / 91 / 39
@@ -315,6 +315,10 @@ KNN and the Keras neural network landed in the middle of the pack at 60% and 64%
 **Overall pattern:** Every model struggled with class 0, which is the smallest class (142 samples) and consistently gets absorbed into class 1's predictions. Class 1, with by far the largest sample count, dominates every model's predictions and recall, while class 2 sits in between, with varying degrees of confusion with class 1.
 
 **Best model:** The Tuned SVM is the strongest overall performer, achieving the highest accuracy (68%) while also maintaining the best class 0 recall among the higher-accuracy models (56/142 ≈ 39%, compared to the tuned NB's 28/142 ≈ 20%). It offers the best balance of overall accuracy and per-class performance.
+
+![alt text](Images/lime_plot.png)
+
+The lime plot above, shows the model predicts Class 1 (85%), Class 2 (13%) while class 0 (2%). The presence of link, mobile, amp, austin, via, blackberry and rt contributes most toward this prediction, app, even, new support class 2 ,while even, io, app, austin, blackberry and some other factors support Class 0. Since the probabilities are varying (2% vs. 85% vs. 13%), the model's confidence in this prediction is relatively high.
 
 # 6. Conclusion
 
