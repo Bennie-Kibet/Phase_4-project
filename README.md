@@ -246,7 +246,7 @@ The values are:
 
 The overall pattern is similar, but tuning shifted performance slightly: class 1's correct predictions increased from 1044 to 1125, and its confusion with class 2 dropped (276 → 203). However, class 2's own accuracy fell (416 → 371), with more of its samples now being misclassified as class 1 (294 → 348). Class 0 stayed essentially unchanged (55 → 56 correct).
 
-## 4.3. Model 4: MultinomialNB Model
+## 4.3. Model 5: MultinomialNB Model
 
 ![alt text](Images/cm_nb.png)
 
@@ -260,7 +260,7 @@ The values are:
 
 As noted previously, the first column is entirely zero — this model never predicts class 0 at all, so every true class-0 sample is misclassified (mostly into class 1). Class 1 has very high recall (1294/1383), while class 2 is mostly absorbed into class 1 (600 of 743).
 
-### 4.3.2. Model 5: Tuned MultiNomialNB Model
+### 4.3.2. Model 6: Tuned MultiNomialNB Model
 
 ![alt text](Images/cm_nb_tuned.png)
 
@@ -274,7 +274,7 @@ The values are:
 
 Tuning has clearly changed the model's behavior: class 0 is now predicted at all (the first column is no longer empty), and 28 of the 142 true class-0 samples are now correctly identified. However, this comes with trade-offs elsewhere: class 1's correct predictions dropped from 1294 to 1112, with more spillover into class 2 (89 -> 250). Class 2's correct predictions increased from 143 to 376, with reduced (but still substantial) confusion toward class 1 (600 -> 361).
 
-## 4.4. Model 6: KNearestNeighbours Model
+## 4.4. Model 7: KNearestNeighbours Model
 
 ![alt text](Images/cm_knn.png)
 
@@ -287,7 +287,7 @@ The values are:
 
 Class 0 performs poorly here, with only 16 of 142 samples correctly classified, while a large majority (107) are misclassified as class 1. Class 1 again shows strong recall, with 1085 of 1383 correctly classified, and the remaining samples split between class 0 (48) and class 2 (250). Class 2 is correctly classified 269 of 743 times, but a substantial portion (450) is misclassified as class 1, with a smaller amount (24) going to class 0.
 
-## 4.5. Model 7: Keras Sequential Model
+## 4.5. Model 8: Keras Sequential Model
 
 ![alt text](Images/cm_nn.png)
 
@@ -302,7 +302,7 @@ Class 0 performs weakly, with only 12 of 142 samples correctly classified (≈8%
 
 # 5. Model Evaluation
 
-Across the seven models evaluated, accuracy ranged from 42% to 68%, with a clear split between the weak baseline and the rest of the tuned/alternative models.
+Across the eight models evaluated, accuracy ranged from 42% to 68%, with a clear split between the weak baseline and the rest of the tuned/alternative models.
 
 The baseline Random Forest performed by far the worst, at just 42% accuracy, driven largely by heavy misclassification of class 1 samples into classes 0 and 2. Simply tuning the Random Forest produced the single biggest jump in the whole study, raising accuracy to 65% mainly by sharpening class 1's diagonal (correct predictions roughly doubling from 571 to 1012), though this came at a small cost to class 0 recall.
 
